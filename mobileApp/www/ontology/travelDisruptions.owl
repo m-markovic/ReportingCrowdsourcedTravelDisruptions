@@ -1,0 +1,461 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY TravelDisruption "http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#" >
+    <!ENTITY Harbour "http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Harbour&amp;" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Harbour="&TravelDisruption;Harbour&amp;"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:TravelDisruption="http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#hasCategory -->
+
+    <owl:ObjectProperty rdf:about="#hasCategory">
+        <rdfs:range rdf:resource="#Category"/>
+        <rdfs:domain rdf:resource="#DisruptionEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#hasCause -->
+
+    <owl:ObjectProperty rdf:about="#hasCause">
+        <rdfs:range rdf:resource="#Event"/>
+        <rdfs:domain rdf:resource="#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#hasEffect -->
+
+    <owl:ObjectProperty rdf:about="#hasEffect">
+        <rdfs:domain rdf:resource="#Event"/>
+        <rdfs:range rdf:resource="#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#hasEffectOn -->
+
+    <owl:ObjectProperty rdf:about="#hasEffectOn">
+        <rdfs:domain rdf:resource="#DisruptionEvent"/>
+        <rdfs:range rdf:resource="#Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="#hasStatus">
+        <rdfs:domain rdf:resource="#DisruptionEvent"/>
+        <rdfs:range rdf:resource="#Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#AirIncident -->
+
+    <owl:Class rdf:about="#AirIncident">
+        <rdfs:label rdf:datatype="&xsd;string">Air Incident</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#AirportEngineeringWorks -->
+
+    <owl:Class rdf:about="#AirportEngineeringWorks">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Airport Engineering Works</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Maintenance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Cancelation -->
+
+    <owl:Class rdf:about="#Cancelation">
+        <rdfs:label rdf:datatype="&xsd;string">Cancelation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DisruptionEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Category -->
+
+    <owl:Class rdf:about="#Category">
+        <rdfs:label rdf:datatype="&xsd;string">Category</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Congestion -->
+
+    <owl:Class rdf:about="#Congestion">
+        <rdfs:label rdf:datatype="&xsd;string">Congestion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DisruptionEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#CultralEvent -->
+
+    <owl:Class rdf:about="#CultralEvent">
+        <rdfs:label rdf:datatype="&xsd;string">Cultural Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SocialEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Delay -->
+
+    <owl:Class rdf:about="#Delay">
+        <rdfs:label rdf:datatype="&xsd;string">Delay</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DisruptionEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#DisasterEvent -->
+
+    <owl:Class rdf:about="#DisasterEvent">
+        <rdfs:label rdf:datatype="&xsd;string">Disaster Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NaturalEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#DisruptionEvent -->
+
+    <owl:Class rdf:about="#DisruptionEvent">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Disruption Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Event -->
+
+    <owl:Class rdf:about="#Event">
+        <rdfs:label rdf:datatype="&xsd;string">Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Harbour&amp;WaterwayEngineeringWorks -->
+
+    <owl:Class rdf:about="#Harbour&amp;WaterwayEngineeringWorks">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Harbour &amp; Waterway Engineering Works</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Maintenance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Harbour&amp;WaterwayIncident -->
+
+    <owl:Class rdf:about="#Harbour&amp;WaterwayIncident">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Harbour &amp; Waterway Incident</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Incident -->
+
+    <owl:Class rdf:about="#Incident">
+        <rdfs:label rdf:datatype="&xsd;string">Incident</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DisruptionEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Infrastructure -->
+
+    <owl:Class rdf:about="#Infrastructure">
+        <rdfs:label rdf:datatype="&xsd;string">Infrastructure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Maintenance -->
+
+    <owl:Class rdf:about="#Maintenance">
+        <rdfs:label rdf:datatype="&xsd;string">Maintenance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DisruptionEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#NaturalEvent -->
+
+    <owl:Class rdf:about="#NaturalEvent">
+        <rdfs:label rdf:datatype="&xsd;string">Natural Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#OtherEvent -->
+
+    <owl:Class rdf:about="#OtherEvent">
+        <rdfs:label rdf:datatype="&xsd;string">Other Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SocialEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#RailwayEngineeringWorks -->
+
+    <owl:Class rdf:about="#RailwayEngineeringWorks">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Railway Engineering Works</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Maintenance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#RailwayIncident -->
+
+    <owl:Class rdf:about="#RailwayIncident">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Railway Incident</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#RoadIncident -->
+
+    <owl:Class rdf:about="#RoadIncident">
+        <rdfs:label rdf:datatype="&xsd;string">Road Incident</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#RoadWorks -->
+
+    <owl:Class rdf:about="#RoadWorks">
+        <rdfs:label rdf:datatype="&xsd;string">Road Works</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Maintenance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Services -->
+
+    <owl:Class rdf:about="#Services">
+        <rdfs:label rdf:datatype="&xsd;string">Services</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#SocialEvent -->
+
+    <owl:Class rdf:about="#SocialEvent">
+        <rdfs:label rdf:datatype="&xsd;string">Social Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#SportEvent -->
+
+    <owl:Class rdf:about="#SportEvent">
+        <rdfs:label rdf:datatype="&xsd;string">Sport Event</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#SocialEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Status -->
+
+    <owl:Class rdf:about="#Status">
+        <rdfs:label rdf:datatype="&xsd;string">Status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Thing -->
+
+    <owl:Class rdf:about="#Thing">
+        <rdfs:label rdf:datatype="&xsd;string">Thing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#TubeEngineeringWorks -->
+
+    <owl:Class rdf:about="#TubeEngineeringWorks">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Tube Engineering Works</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Maintenance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#TubeIncident -->
+
+    <owl:Class rdf:about="#TubeIncident">
+        <rdfs:label rdf:datatype="&xsd;string">Tube Incident</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Weather -->
+
+    <owl:Class rdf:about="#Weather">
+        <rdfs:label rdf:datatype="&xsd;string">Weather</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#NaturalEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Busy -->
+
+    <Congestion rdf:about="#Busy">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Congestion>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Cleared -->
+
+    <Status rdf:about="#Cleared">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Cleared</rdfs:label>
+    </Status>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Congested -->
+
+    <owl:Thing rdf:about="#Congested">
+        <rdf:type rdf:resource="#Congestion"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Current -->
+
+    <Status rdf:about="#Current">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Current</rdfs:label>
+    </Status>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Free -->
+
+    <owl:Thing rdf:about="#Free">
+        <rdf:type rdf:resource="#Congestion"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Moderate -->
+
+    <owl:Thing rdf:about="#Moderate">
+        <rdf:type rdf:resource="#Category"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Planed -->
+
+    <Status rdf:about="#Planed">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label>Planed</rdfs:label>
+    </Status>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Severe -->
+
+    <owl:Thing rdf:about="#Severe">
+        <rdf:type rdf:resource="#Category"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Slight -->
+
+    <Category rdf:about="#Slight">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </Category>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2012/4/TravelDisruption.owl#Unknown -->
+
+    <owl:Thing rdf:about="#Unknown">
+        <rdf:type rdf:resource="#Category"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

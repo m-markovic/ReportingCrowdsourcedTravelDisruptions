@@ -1,0 +1,105 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title></title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/grid.css">
+<link rel="stylesheet" href="../css/jquery-ui-1.8.18.custom.css">
+
+<script src="../js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body class="container_12">
+	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+	<div role="main" class="main">
+		<!-- 
+			<div class="content clearfix grid_12">
+			<img src="img/banner_1.jpg" width="940px"/>
+		</div>
+		<div class="grid_12 content clearfix">
+			<p>GetThere is part of a passenger information system that allows
+				users to view and provide information about bus locations, and be
+				notified of expected bus arrival times.</p>
+		</div>
+	 -->
+
+
+		<div class="content clearfix">
+
+			<div class="grid_12 content">
+				<h4>Road Points</h4>
+				<div id="map" class="map" style="height:800px"></div>
+			</div>
+		</div>
+	</div>
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="../js/libs/jquery-1.7.1.min.js"><\/script>')
+	</script>
+
+	<script type="text/javascript" src="../js/plugins.js"></script>
+	<script type="text/javascript" src="../js/x95/script.js"></script>
+	<script type="text/javascript" src="../js/libs/moment.min.js"></script>
+	<script type="text/javascript" src="../js/libs/OpenLayers.js"></script>
+	<script type="text/javascript" src="../js/x95/x95Journey1.js"></script>
+	<script type="text/javascript"
+		src="../js/libs/jquery-ui-1.8.18.custom.min.js"></script>
+	<script>
+		/* var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+		 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+		 g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		 s.parentNode.insertBefore(g,s)}(document,'script'));*/
+	</script>
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+
+					var mymap = mapping.init('map');
+					mymap.setCenter(new OpenLayers.LonLat(-3.19145, 55.9557).transform(
+							new OpenLayers.Projection("EPSG:4326"),
+							new OpenLayers.Projection("EPSG:900913")), 12);
+					var l = mapping.addMarkerLayer(mymap, "roadPoints",
+							"http://cops-022382.uoa.abdn.ac.uk/~david/GetThereWeb/img/busTT.gif");
+					l.removeAllFeatures();
+					var features = {
+						"type" : "FeatureCollection",
+						"features" : []
+					};
+					$.each(locations.locations,
+							function(key, value) {
+								var p = new OpenLayers.LonLat(value.longitude,
+										value.latitude)
+										.transform(new OpenLayers.Projection(
+												"EPSG:4326"),
+												new OpenLayers.Projection(
+														"EPSG:900913"));
+								features.features.push({
+									"type" : "Feature",
+									"geometry" : {
+										"type" : "Point",
+										"coordinates" : [ p.lon, p.lat ]
+									}, 'properties':{'journey':value.jid, 'deviceTime': value.deviceTime, 'serverTime':value.serverTime, 'accuracy':value.accuracy, 'heading':value.heading,'speed':value.speed,'user':value.user}
+								});
+							});
+					var reader = new OpenLayers.Format.GeoJSON();
+
+					var f = reader.read(features);
+					l.addFeatures(f);
+				});
+	</script>
+
+</body>
+</html>
